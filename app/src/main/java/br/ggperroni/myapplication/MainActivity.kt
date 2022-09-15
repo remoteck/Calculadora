@@ -74,13 +74,68 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     //realiza a subtração
-                    tvInput?.text = (firstValue.toDouble() - secondValue.toDouble()).toString()
+                    tvInput?.text = removeZeroAfterFloat((firstValue.toDouble() - secondValue.toDouble()).toString())
+
+                } else if(tvValue.contains("+")) {
+
+                    //pega os 2 valores do input e separa em array
+                    val splitValue = tvValue.split("+")
+
+                    var firstValue = splitValue[0]
+                    val secondValue = splitValue[1]
+
+                    if(prefix.isNotEmpty()) {
+                        firstValue = prefix + firstValue
+                    }
+
+                    //realiza a soma
+                    tvInput?.text = removeZeroAfterFloat((firstValue.toDouble() + secondValue.toDouble()).toString())
+
+                } else if(tvValue.contains("/")) {
+
+                    //pega os 2 valores do input e separa em array
+                    val splitValue = tvValue.split("/")
+
+                    var firstValue = splitValue[0]
+                    val secondValue = splitValue[1]
+
+                    if(prefix.isNotEmpty()) {
+                        firstValue = prefix + firstValue
+                    }
+
+                    //realiza a divisão
+                    tvInput?.text = removeZeroAfterFloat((firstValue.toDouble() / secondValue.toDouble()).toString())
+
+                } else if(tvValue.contains("*")) {
+
+                    //pega os 2 valores do input e separa em array
+                    val splitValue = tvValue.split("*")
+
+                    var firstValue = splitValue[0]
+                    val secondValue = splitValue[1]
+
+                    if(prefix.isNotEmpty()) {
+                        firstValue = prefix + firstValue
+                    }
+
+                    //realiza a multiplicação
+                    tvInput?.text = removeZeroAfterFloat((firstValue.toDouble() * secondValue.toDouble()).toString())
                 }
 
             } catch(e: ArithmeticException) {
                 e.printStackTrace()
             }
         }
+    }
+
+    private fun removeZeroAfterFloat(result: String): String {
+        var value = result
+
+        if(result.contains(".0")) {
+            value = result.substring(0, result.length - 2)
+        }
+
+        return value
     }
 
     private fun isOperatorAdded(value: String): Boolean {

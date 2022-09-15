@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Calculadora</string>
-    <string name="calc_text">0123456789</string>
+    <string name="calc_text">0</string>
     <string name="button_zero">0</string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>
@@ -16,5 +16,6 @@
     <string name="button_sum">+</string>
     <string name="button_sub">-</string>
     <string name="button_equal">=</string>
+    <string name="button_float">.</string>
     <string name="button_clear">LIMPAR</string>
 </resources>
